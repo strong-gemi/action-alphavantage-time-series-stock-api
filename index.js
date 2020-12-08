@@ -18,7 +18,7 @@ const params = new URLSearchParams({
     //console.log("xxx params", params);
     const response = await fetch(url + params);
     const json = await response.json();
-    core.setInput("res", json);
+    core.setOutput("res", json);
     console.log("json:", json);
     //console.log(json.origin);
   } catch (error) {
