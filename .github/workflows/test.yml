@@ -1,0 +1,16 @@
+name: Test
+on: [push]
+jobs:
+  build:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: action-alphavantage-time-series-stock-api
+        id: api
+        uses: strong-gemi/action-alphavantage-time-series-stock-api@master
+        with:
+          symbol: 'PLTR'
+      #- name: Get the output res
+      #  run: echo "!!res!! - ${{ steps.hello2.outputs.res }}"

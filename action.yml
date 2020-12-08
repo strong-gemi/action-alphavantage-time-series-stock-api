@@ -1,0 +1,15 @@
+name: 'Actions alphavantage api'
+description: 'alphavantage api'
+inputs:
+  symbol:  # id of input
+    description: 'symbol'
+    required: true
+    default: 'TSLA'
+#outputs:
+#  hello:
+#    description: 'Hello World!!'
+  #time: # id of output
+  #  description: 'The time we greeted you'
+runs:
+  using: 'node12'
+  main: 'index.js'
