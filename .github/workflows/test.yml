@@ -12,5 +12,5 @@ jobs:
         uses: strong-gemi/action-alphavantage-time-series-stock-api@master
         with:
           symbol: 'PLTR'
-      #- name: Get the output res
-      #  run: echo "!!res!! - ${{ steps.hello2.outputs.res }}"
+      - name: Get the output res
+        run: echo "res!! - ${{ steps.api.outputs.res }}"
