@@ -11,6 +11,7 @@ jobs:
         id: api
         uses: strong-gemi/action-alphavantage-time-series-stock-api@master
         with:
+          function: 'GLOBAL_QUOTE'
           symbol: 'PLTR'
-      - name: Get the output res
-        run: echo "res!! - ${{ steps.api.outputs.res }}"
+      - name: Get the output GQ-price
+        run: echo "res!! - ${{ steps.api.outputs.GQ-price }}"
