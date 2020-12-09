@@ -3,9 +3,11 @@ const fetch = require("node-fetch");
 
 const url = "https://www.alphavantage.co/query?";
 const params = new URLSearchParams({
-  function: "TIME_SERIES_INTRADAY",
+  function: core.getInput("function"),
+  //function: "GLOBAL_QUOTE",
   symbol: core.getInput("symbol"),
-  interval: "5min",
+  //symbol: "TSLA",
+  //interval: "5min",
   apikey: process.env.API_KEY
 });
 
@@ -18,8 +20,11 @@ const params = new URLSearchParams({
     //console.log("xxx params", params);
     const response = await fetch(url + params);
     const json = await response.json();
-    core.setOutput("res", json);
-    console.log("json:", json);
+    //core.setOutput("res", json);
+    //console.log("json:", json["Meta Data"]);
+    console.log("json:", json["Global Quote"]["05. price"]);
+
+    core.setOutput("GQ-price", json["Global Quote"]["05. price"]);
     //console.log(json.origin);
   } catch (error) {
     console.error(error);
